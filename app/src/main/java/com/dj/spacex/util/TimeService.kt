@@ -1,0 +1,29 @@
+package com.dj.spacex.util
+
+import android.util.Log
+import java.util.*
+
+fun getCurrentMillisTime(): Long {
+    val date = Date(System.currentTimeMillis())
+    return date.time
+}
+
+fun compareMillis(oldMillis: Long, currentMillis: Long, timeToFetch: Long): Boolean {
+
+    val maxNotFetchFromApi: Long = when (timeToFetch) {
+        0L -> 0L
+        else -> 1000 * 60 * timeToFetch
+    }
+
+    val differenceOfTime = currentMillis - oldMillis
+    Log.d("difference", differenceOfTime.toString())
+    return when {
+        differenceOfTime > maxNotFetchFromApi -> true
+        else -> false
+    }
+}
+
+fun millisToDate(millis: Long): Date {
+    return Date(millis)
+}
+

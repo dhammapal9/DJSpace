@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mobile_navigation"
+        app:startDestination="@+id/nav_home">
+
+    <fragment
+            android:id="@+id/nav_home"
+            android:name="com.dj.spacex.ui.home.HomeFragment"
+            android:label="@string/menu_home"
+            tools:layout="@layout/fragment_home">
+
+
+        <action
+                android:id="@+id/action_nav_home_to_nav_rocket"
+                app:destination="@id/nav_rocket" />
+
+
+
+    </fragment>
+
+
+
+    <fragment
+            android:id="@+id/nav_rocket"
+            android:name="com.dj.spacex.ui.rocket.RocketFragment"
+            android:label="Rockets"
+            tools:layout="@layout/fragment_rocket">
+        <action
+                android:id="@+id/action_nav_rocket_to_rocketDetailsFragment"
+                app:destination="@id/rocketDetailsFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/rocketDetailsFragment"
+            android:name="com.dj.spacex.ui.rocket.RocketDetailsFragment"
+            tools:layout="@layout/rocket_details_fragment" />
+    <argument
+            android:name="argRocketId"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+
+
+
+
+
+
+
+
+
+
+</navigation>
